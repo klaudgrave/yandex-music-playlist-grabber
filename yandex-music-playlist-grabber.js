@@ -11,20 +11,20 @@ trackLength = curTrack.childNodes[4].childNodes[1].innerHTML;
 */
 var i = 0;
 
-//запускаем рекурсивно с паузой для догрузки
+//Р·Р°РїСѓСЃРєР°РµРј СЂРµРєСѓСЂСЃРёРІРЅРѕ СЃ РїР°СѓР·РѕР№ РґР»СЏ РґРѕРіСЂСѓР·РєРё
 var timerId = setTimeout(function tick() {
 	a.childNodes[i].scrollIntoView();
 	curTrack = a.childNodes[i];	
-	//если информация о треке уже загрузилась
+	//РµСЃР»Рё РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ С‚СЂРµРєРµ СѓР¶Рµ Р·Р°РіСЂСѓР·РёР»Р°СЃСЊ
 	if (hasClass(curTrack, 'track_in-lib')) {
 		trackName = curTrack.childNodes[0].firstChild.firstChild.innerHTML;
 		trackArtist = curTrack.childNodes[3].firstChild.innerHTML;
 		trackLength = curTrack.childNodes[4].childNodes[1].innerHTML;
-		//то считываем её и пишем
+		//С‚Рѕ СЃС‡РёС‚С‹РІР°РµРј РµС‘ Рё РїРёС€РµРј
 		arr[i] = [trackArtist, trackName, trackLength];
 	
 	}
-	//иначе ждём и проверяем ещё раз
+	//РёРЅР°С‡Рµ Р¶РґС‘Рј Рё РїСЂРѕРІРµСЂСЏРµРј РµС‰С‘ СЂР°Р·
 	else {
 		timerId = setTimeout(tick, 500);
 	}
